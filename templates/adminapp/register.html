@@ -1,0 +1,50 @@
+{% extends 'Navbar/ProjectNavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      First in DOM, no order applied
+        <br>
+         <form method="post" action="{% url 'UserRegisterLogic' %}" >
+             {% csrf_token %}
+             <label for="username">User Name:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" required><br><br>
+
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+            <button type="submit">Submit</button>
+         </form>
+    </div>
+
+
+    <div class="col order-5">
+      Second in DOM, with a larger order
+        <h1>{{user_input}}</h1>
+    </div>
+
+
+
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
